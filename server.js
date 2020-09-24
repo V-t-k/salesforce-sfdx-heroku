@@ -1,5 +1,5 @@
 import express from 'express';
-import {Sfdx} from './modules/sfdx.js';
+import {Sfdx} from './src/sfdx.js';
 import {PORT} from './utils/utils.js';
 
 const app = express();
