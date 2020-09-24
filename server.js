@@ -24,12 +24,18 @@ app.route('/')
 
         sfdxClient.authorize()
             .then((data) => {
+                console.log('data 1 >>>> ');
+                console.log(data);
                 return sfdxClient.getData();
             })
             .then((data) => {
+                console.log('data 2 >>>> ');
+                console.log(data);
                 return sfdxClient.getOrgLimits();
             })
             .then((data) => {
+                console.log('data 3 >>>> ');
+                console.log(data);
                 res.send(data);
             })
             .catch((err) => console.log(err));
