@@ -12,7 +12,7 @@ class Sfdx {
 
     authorize() {
         let command = 
-            `sfdx force:auth:jwt:grant -i ${this.clientId} -u ${this.userName} -f ${JWT_KEY_FILE} -a ${DEVHUB_ORG_ALIAS}`;
+            `sfdx force:auth:jwt:grant -i ${this.clientId} -f ${JWT_KEY_FILE} -u ${this.userName} -a ${DEVHUB_ORG_ALIAS}`;
 
             console.log('command : ' + command);
         
