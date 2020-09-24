@@ -9,6 +9,10 @@ app.use(express.json());
 app.route('/')
     .get((req, res) => {
 
+        console.log('query: ' + req.query);
+        console.log('clientId: ' + req.query.clientId);
+        console.log('userName: ' + req.query.userName);
+
         let clientId = req.query.clientId;
         let userName = req.query.userName;
         
