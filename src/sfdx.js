@@ -17,6 +17,8 @@ class Sfdx {
             `-u ${this.userName} ` +
             `-f ${JWT_KEY_FILE} ` +
             `-a ${DEVHUB_ORG_ALIAS}`;
+
+            console.log('command : ' + command);
         
         return this.cliExecute(command);
     }
