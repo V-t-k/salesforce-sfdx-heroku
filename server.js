@@ -9,7 +9,7 @@ app.use(express.json());
 app.route('/')
     .get((req, res) => {
 
-        console.log('query: ' + JSON.parse(req.query));
+        console.log('query: ' + JSON.stringify(req.query));
         console.log('clientId: ' + req.query.clientId);
         console.log('userName: ' + req.query.userName);
 
