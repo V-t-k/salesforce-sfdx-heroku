@@ -38,6 +38,8 @@ class Sfdx {
         let command = 
             `sfdx force:org:create -f ${SCRATCH_CONFIG_FILE} ` +
             `--json -v ${DEVHUB_ORG_ALIAS} -d 30`;
+
+            console.log('command >>> ' + command);
         
         return new Promise((resolve, reject) => {
             configScratchSettingsFile(scractchSettingsData)
