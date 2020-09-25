@@ -1,6 +1,9 @@
 import path from 'path';
-// import fs from 'fs';
-import { promises as fs } from 'fs/promises'
+import fs from 'fs';
+import { promisify } from 'util'
+// import fs from 'fs/promises'
+
+const writeFile = promisify(fs.writeFile);
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 const JWT_KEY_FILE = path.join(__dirname, '..', '..', 'config' ,'certificate', 'privateKey.key').substring(1);
@@ -12,7 +15,11 @@ const PORT = process.env.PORT || 3003;
 
 async function configScratchSettingsFile(scractchSettingsData) {
     try {
-        await fs.writeFile(SCRATCH_CONFIG_FILE, JSON.stringify(scractchSettingsData, ' ', 4), 'UTF-8');
+        await writeFile(
+            SCRATCH_CONFIG_FILE, 
+            JSON.stringify(scractchSettingsData, ' ', 4), 
+            'UTF-8'
+        );
         console.log('file written succesfully');
     } catch(error) {
         console.log(error);
