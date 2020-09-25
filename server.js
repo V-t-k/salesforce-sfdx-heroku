@@ -13,10 +13,6 @@ app.use(express.json());
 app.route('/')
     .get((req, res) => {
 
-        console.log('query: ' + JSON.stringify(req.query));
-        console.log('clientId: ' + req.query.clientId);
-        console.log('userName: ' + req.query.userName);
-
         let clientId = req.query.clientId;
         let userName = req.query.userName;
 
@@ -24,22 +20,15 @@ app.route('/')
 
         sfdxClient.authorize()
             .then((data) => {
-                console.log('data 1 >>>> ');
-                console.log(data);
                 return sfdxClient.getData();
             })
             .then((data) => {
-                console.log('data 2 >>>> ');
-                console.log(data);
                 return sfdxClient.getOrgLimits();
             })
             .then((data) => {
-                console.log('data 3 >>>> ');
-                console.log(data);
                 res.send(data);
             })
             .catch((err) => console.log(err));
-
     })
     .post((req, res) => {
         res.send(req.query);
@@ -48,7 +37,11 @@ app.route('/')
         let clientId = req.body.clientId;
         let userName = req.body.userName;
 
+        console.log('clientId : ' + clientId);
+        console.log('userName : ' + clientId);
+
         let scractchSettingsData = req.body;
+        console.log('scractchSettingsData : ' + JSON.stringify(scractchSettingsData));
         delete scractchSettingsData.clientId;
         delete scractchSettingsData.userName;
 
@@ -57,9 +50,11 @@ app.route('/')
         sfdxClient.createScratchOrg(scractchSettingsData)
             .then((data) => {
                 let json = JSON.parse(data);
+                console.log('json : ' + json);
                 return sfdxClient.userPasswordGenerate(json.result.username);
             })
             .then((data) => {
+                console.log('data : ' + data);
                 res.send(data);
             })
             .catch((err) => {
