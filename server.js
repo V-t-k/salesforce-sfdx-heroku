@@ -47,11 +47,11 @@ app.route('/')
             .then((data) => {
                 let json = JSON.parse(data);
                 console.log('json : ' + JSON.stringify(json));
-                console.log('usernameson : ' + json.result.usernameson);
+                console.log('username : ' + json.result.username);
                 return sfdxClient.userPasswordGenerate(json.result.username);
             })
             .then((data) => {
-                console.log('data : ' + data);
+                console.log('data : ' + JSON.stringify(data));
                 res.send(data);
             })
             .catch((err) => {
