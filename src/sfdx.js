@@ -36,8 +36,7 @@ class Sfdx {
 
     createScratchOrg(scractchSettingsData) {
         let command = 
-            `sfdx force:org:create -f ${SCRATCH_CONFIG_FILE} ` +
-            `--json -v ${DEVHUB_ORG_ALIAS} -d 30`;
+            `sfdx force:org:create -f ${SCRATCH_CONFIG_FILE}`;
 
             console.log('command >>> ' + command);
         
