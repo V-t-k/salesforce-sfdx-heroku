@@ -37,8 +37,9 @@ app.route('/')
         let clientId = req.body.clientId;
         let userName = req.body.userName;
 
+        console.log('body : ' + JSON.stringify(req.body));
         console.log('clientId : ' + clientId);
-        console.log('userName : ' + clientId);
+        console.log('userName : ' + userName);
 
         let scractchSettingsData = req.body;
         console.log('scractchSettingsData : ' + JSON.stringify(scractchSettingsData));
