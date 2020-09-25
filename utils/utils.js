@@ -6,6 +6,7 @@ import { promisify } from 'util'
 const writeFile = promisify(fs.writeFile);
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
+console.log('__dirname : ' + __dirname);
 const JWT_KEY_FILE = path.join(__dirname, '..', '..', 'config' ,'certificate', 'privateKey.key').substring(1);
 const SCRATCH_CONFIG_FILE = path.join(__dirname, '..', 'config', 'scratchSettings', 'project-scratch-def.json').substring(1);
 const DEVHUB_ORG_ALIAS = 'DevHub';
