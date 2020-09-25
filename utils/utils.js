@@ -10,24 +10,26 @@ const SCRACTH_ORG_ALIAS = 'Scratch';
 
 const PORT = process.env.PORT || 3003;
 
-try {
-    await fs.writeFile(SCRATCH_CONFIG_FILE, JSON.stringify(scractchSettingsData, ' ', 4), 'UTF-8');
-    console.log('file written succesfully');
-} catch(error) {
-    console.log(error);
+async function configScratchSettingsFile(scractchSettingsData) {
+    try {
+        await fs.writeFile(SCRATCH_CONFIG_FILE, JSON.stringify(scractchSettingsData, ' ', 4), 'UTF-8');
+        console.log('file written succesfully');
+    } catch(error) {
+        console.log(error);
+    }
 }
 
-function configScratchSettingsFile(scractchSettingsData) {
-    return new Promise((resolve, reject) => {
-        fs.writeFile(SCRATCH_CONFIG_FILE, JSON.stringify(scractchSettingsData, ' ', 4), 'UTF-8', (err, data) => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(data);
-            }
-        });
-    });
-}
+// function configScratchSettingsFile(scractchSettingsData) {
+//     return new Promise((resolve, reject) => {
+//         fs.writeFile(SCRATCH_CONFIG_FILE, JSON.stringify(scractchSettingsData, ' ', 4), 'UTF-8', (err, data) => {
+//             if (err) {
+//                 reject(err);
+//             } else {
+//                 resolve(data);
+//             }
+//         });
+//     });
+// }
 
 
 
