@@ -1,6 +1,5 @@
 import child_process from 'child_process';
 import {JWT_KEY_FILE, DEVHUB_ORG_ALIAS, SCRATCH_CONFIG_FILE, configScratchSettingsFile} from '../utils/utils.js';
-import fs from 'fs';
 
 const exec = child_process.exec;
 
@@ -35,10 +34,7 @@ class Sfdx {
     }
 
     createScratchOrg(scractchSettingsData) {
-        let command = 
-            `sfdx force:org:create -f ${SCRATCH_CONFIG_FILE} -v ${DEVHUB_ORG_ALIAS}`;
-
-            console.log('command >>> ' + command);
+        let command = `sfdx force:org:create -f ${SCRATCH_CONFIG_FILE} -v ${DEVHUB_ORG_ALIAS}`;
         
         return new Promise((resolve, reject) => {
             configScratchSettingsFile(scractchSettingsData)
@@ -56,11 +52,8 @@ class Sfdx {
 
     userPasswordGenerate(userName) {
         let command = `sfdx force:user:password:generate -u ${userName} -v ${DEVHUB_ORG_ALIAS} --json`;
-        console.log("command : " + command);
-        return {password : this.cliExecute(command), name : userName};
+        return this.cliExecute(command);
     }
-
-    
 
     cliExecute(command) {
         return new Promise((resolve, reject) => {
@@ -75,4 +68,4 @@ class Sfdx {
     }
 }
 
-export {Sfdx};
+export { Sfdx };

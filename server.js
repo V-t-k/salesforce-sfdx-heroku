@@ -51,23 +51,25 @@ app.route('/')
                 console.log('stringified data >>> ' + stringifiedData);
 
                 let userName = stringifiedData.substring(stringifiedData.lastIndexOf(': ') + 2, stringifiedData.lastIndexOf('\n')) ;
-                console.log('username : ' + userName);
-                console.log('data.result : ' + data.result);
+                console.log('username >>> ' + userName);
+                console.log('data.result >>> ' + data.result);
 
-                let password = sfdxClient.userPasswordGenerate(userName);
-                console.log('password >>> ' + password);
+                let password = '';
 
-                let creds = {
-                    password,
-                    userName
-                }
-                res.send(creds);
-                // return sfdxClient.userPasswordGenerate(userName);
+                sfdxClient.userPasswordGenerate(userName)
+                    .then(data => { 
+                        password = data; 
+                        console.log('password >>> ' + password);
+
+                        let creds = {
+                            password,
+                            userName
+                        }
+                        res.send(creds);
+
+                    })
+                    .catch(err => { console.log(err) });             
             })
-            // .then((data) => {
-            //     console.log('data : ' + JSON.stringify(data));
-            //     res.send(data);
-            // })
             .catch((err) => {
                 console.log(err);
             });
