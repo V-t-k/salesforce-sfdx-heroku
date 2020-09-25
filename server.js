@@ -46,8 +46,9 @@ app.route('/')
         sfdxClient.createScratchOrg(scractchSettingsData)
             .then((data) => {
                 // let json = JSON.parse(data);
-                console.log('json : ' + JSON.stringify(json));
-                console.log('username : ' + json.result.username);
+                console.log('data >>> ' + JSON.stringify(data));
+                console.log('username : ' + data.result.username);
+                console.log('data.result : ' + data.result);
                 return sfdxClient.userPasswordGenerate(json.result.username);
             })
             .then((data) => {
