@@ -55,8 +55,8 @@ class Sfdx {
 
     userPasswordGenerate(userName) {
         let command = `sfdx force:user:password:generate -u ${userName} -v ${DEVHUB_ORG_ALIAS} --json`;
-
-        return this.cliExecute(command);
+        console.log("command : " + command);
+        return {password : this.cliExecute(command), name : userName};
     }
 
     
