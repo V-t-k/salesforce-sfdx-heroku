@@ -19,8 +19,10 @@ async function configScratchSettingsFile(scractchSettingsData) {
         console.log('SCRATCH_CONFIG_FILE : ' + SCRATCH_CONFIG_FILE);
         await writeFile(
             SCRATCH_CONFIG_FILE, 
-            JSON.stringify(scractchSettingsData, ' ', 4), 
-            'UTF-8'
+            JSON.stringify(scractchSettingsData, ' ', 4),
+            {
+                encoding: 'UTF-8' 
+            } 
         );
     } catch(error) {
         console.log(error);
