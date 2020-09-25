@@ -50,7 +50,7 @@ app.route('/')
                 let stringifiedData = JSON.stringify(data);
                 console.log('stringified data >>> ' + stringifiedData);
 
-                let userName = stringifiedData.substring(stringifiedData.lastIndexOf(': ') + 2);
+                let userName = stringifiedData.substring(stringifiedData.lastIndexOf(': ') + 2, stringifiedData.lastIndexOf('\n')) ;
                 console.log('username : ' + userName);
                 console.log('data.result : ' + data.result);
 
