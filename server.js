@@ -36,13 +36,8 @@ app.route('/')
     .put((req, res) => {
         let clientId = req.body.clientId;
         let userName = req.body.userName;
-
-        console.log('body : ' + JSON.stringify(req.body));
-        console.log('clientId : ' + clientId);
-        console.log('userName : ' + userName);
-
         let scractchSettingsData = req.body;
-        console.log('scractchSettingsData : ' + JSON.stringify(scractchSettingsData));
+    
         delete scractchSettingsData.clientId;
         delete scractchSettingsData.userName;
 
@@ -52,7 +47,7 @@ app.route('/')
             .then((data) => {
                 let json = JSON.parse(data);
                 console.log('json : ' + JSON.stringify(json));
-                console.log('json : ' + json.result.usernameson);
+                console.log('usernameson : ' + json.result.usernameson);
                 return sfdxClient.userPasswordGenerate(json.result.username);
             })
             .then((data) => {

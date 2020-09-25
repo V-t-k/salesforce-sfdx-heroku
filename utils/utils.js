@@ -15,12 +15,13 @@ const PORT = process.env.PORT || 3003;
 
 async function configScratchSettingsFile(scractchSettingsData) {
     try {
+        console.log('scractchSettingsData : ' + JSON.stringify(scractchSettingsData));
+        console.log('SCRATCH_CONFIG_FILE : ' + SCRATCH_CONFIG_FILE);
         await writeFile(
             SCRATCH_CONFIG_FILE, 
             JSON.stringify(scractchSettingsData, ' ', 4), 
             'UTF-8'
         );
-        console.log('file written succesfully');
     } catch(error) {
         console.log(error);
     }
