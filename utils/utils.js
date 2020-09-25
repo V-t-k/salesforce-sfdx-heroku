@@ -12,7 +12,7 @@ const SCRATCH_CONFIG_FILE2 = path.join(__dirname, '..', 'config', 'scratchSettin
 console.log('SCRATCH_CONFIG_FILE2 : ' + SCRATCH_CONFIG_FILE2);
 const SCRATCH_CONFIG_FILE1 = path.join(__dirname, '..', 'config', 'scratchSettings', 'project-scratch-def.json').substring(1);
 console.log('SCRATCH_CONFIG_FILE1 : ' + SCRATCH_CONFIG_FILE1);
-const SCRATCH_CONFIG_FILE = path.join(__dirname, '..', '..', 'config', 'scratchSettings', 'project-scratch-def.json');
+const SCRATCH_CONFIG_FILE = path.join(__dirname, '..', '..', 'config', 'scratchSettings', 'project-scratch-def.json').substring(1);;
 console.log('SCRATCH_CONFIG_FILE : ' + SCRATCH_CONFIG_FILE);
 const DEVHUB_ORG_ALIAS = 'DevHub';
 const SCRACTH_ORG_ALIAS = 'Scratch';
